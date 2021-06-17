@@ -1,17 +1,15 @@
-
+// Declaring the variables
 const button = document.querySelector('.button')
 const dataDisp = document.querySelector('.displayData')
 
-
-
-
+// Click Function trigger to submit the user request
 submit.addEventListener("click", function() {
 
     const country = document.querySelector('#fname').value;
     fname.value="";
 
+// Function creation to fetch the Javascript Api
     function getCountryData() {
-
         fetch(`https://world-population.p.rapidapi.com/population?country_name=${country}`, {
             "method": "GET",
             "headers": {
@@ -23,6 +21,8 @@ submit.addEventListener("click", function() {
         .then(response => {
  
             console.log(response);
+
+            // Creating Table to display set of data in table format
             const displayCntryName=response.body["country_name"];
             const displayRank=response.body["ranking"];
             const displayPop=response.body["population"];
@@ -47,18 +47,17 @@ submit.addEventListener("click", function() {
             <tr>
                 <td>World Share: </td>
                 <td>${displayShare}</td>
-            </tr>
-            
-           `
-
-            // dataDisp.innerHTML=<p>Population of the entered Country is : ${response.body.population}</p>;
-            
-   
+            </tr>            
+           `  
 })
+
+// Exception error function to implement error in console, in case of fetch failure
 .catch(err => {
 	console.error(err);
 });
 
 }
+
+// Method call to complete the API call
 getCountryData()
 })
