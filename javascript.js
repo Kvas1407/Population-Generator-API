@@ -23,13 +23,37 @@ submit.addEventListener("click", function() {
         .then(response => {
  
             console.log(response);
-            dataDisp.innerHTML=`<p>Population : ${response.body.population}</p>`;
-            dataDisp1.innerHTML=`<p>Country Ranking : ${response.body.ranking}</p>`;
-    
-        // console.log(response);
-        // const displayPop = response.body[`population`];
-        // dataDisp.innerHTML = `${displayPop}`
-    
+            const displayCntryName=response.body["country_name"];
+            const displayRank=response.body["ranking"];
+            const displayPop=response.body["population"];
+            const displayShare=response.body["world_share"];
+
+            dataDisp.innerHTML=`<table class="worldpopulation" id="displayTable">
+            <tr>
+            <td>Country Name: </td>
+            <td>${displayCntryName}</td>
+            </tr>
+
+            <tr>
+            <td>Country Rank: </td>
+            <td>${displayRank}</td>
+            </tr>           
+           
+            <tr>
+                <td>Population: </td>
+                <td>${displayPop}</td>
+            </tr>
+
+            <tr>
+                <td>World Share: </td>
+                <td>${displayShare}</td>
+            </tr>
+            
+           `
+
+            // dataDisp.innerHTML=<p>Population of the entered Country is : ${response.body.population}</p>;
+            
+   
 })
 .catch(err => {
 	console.error(err);
