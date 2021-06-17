@@ -1,7 +1,7 @@
 
 /* Body stylings */
 body{
-    background-image: url('Population-Generator-API/img/Background.jpg');
+    background-image: url('/Population-Generator-API/img/Background.jpg');
     height: 100%; 
     background-position: center;
     background-repeat: no-repeat;
